@@ -1,0 +1,977 @@
+.SEIE {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.SEIE .div {
+  background-color: #ffffff;
+  overflow-x: hidden;
+  width: 1440px;
+  height: 1024px;
+  position: relative;
+}
+
+.SEIE .SEIE-page {
+  position: absolute;
+  width: 1440px;
+  height: 1024px;
+  top: 1022px;
+  left: 0;
+  background-color: #ffffff;
+}
+
+.SEIE .localisation {
+  position: absolute;
+  width: 709px;
+  height: 415px;
+  top: 524px;
+  left: 731px;
+}
+
+.SEIE .overlap-group-wrapper {
+  position: absolute;
+  width: 698px;
+  height: 64px;
+  top: 0;
+  left: 13px;
+}
+
+.SEIE .overlap-group {
+  position: relative;
+  width: 696px;
+  height: 64px;
+  background-color: #569edf;
+}
+
+.SEIE .text-wrapper {
+  position: absolute;
+  width: 275px;
+  height: 64px;
+  top: 0;
+  left: 210px;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 4.65px;
+  line-height: 18px;
+}
+
+.SEIE .global-globalization {
+  position: absolute;
+  width: 695px;
+  height: 341px;
+  top: 74px;
+  left: 0;
+  object-fit: cover;
+}
+
+.SEIE .subvention {
+  position: absolute;
+  width: 1440px;
+  height: 416px;
+  top: 55px;
+  left: 0;
+}
+
+.SEIE .graphique {
+  position: absolute;
+  width: 700px;
+  height: 352px;
+  top: 64px;
+  left: 744px;
+}
+
+.SEIE .overlap-group-2 {
+  position: relative;
+  width: 696px;
+  height: 352px;
+  background-color: #f5f5f5;
+}
+
+.SEIE .arrow {
+  position: absolute;
+  width: 1px;
+  height: 299px;
+  top: 18px;
+  left: 94px;
+}
+
+.SEIE .img {
+  position: absolute;
+  width: 431px;
+  height: 1px;
+  top: 317px;
+  left: 94px;
+}
+
+.SEIE .text-wrapper-2 {
+  position: absolute;
+  width: 18px;
+  height: 24px;
+  top: 25px;
+  left: 76px;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 4.65px;
+  line-height: 18px;
+}
+
+.SEIE .text-wrapper-3 {
+  position: absolute;
+  width: 20px;
+  height: 14px;
+  top: 325px;
+  left: 505px;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 4.65px;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.SEIE .selction-secteur {
+  position: absolute;
+  width: 260px;
+  height: 227px;
+  top: 81px;
+  left: 0;
+}
+
+.SEIE .overlap-group-3 {
+  position: relative;
+  width: 256px;
+  height: 227px;
+}
+
+.SEIE .rectangle {
+  position: absolute;
+  width: 248px;
+  height: 194px;
+  top: 33px;
+  left: 8px;
+  background-color: #fff5f5;
+}
+
+.SEIE .alimentation {
+  position: absolute;
+  width: 129px;
+  top: 55px;
+  left: 51px;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 4.03px;
+  line-height: 15.6px;
+}
+
+.SEIE .rectangle-2 {
+  position: absolute;
+  width: 31px;
+  height: 193px;
+  top: 34px;
+  left: 225px;
+  background-color: #d9d9d9;
+  border-radius: 11px;
+}
+
+.SEIE .rectangle-3 {
+  position: absolute;
+  width: 31px;
+  height: 22px;
+  top: 72px;
+  left: 225px;
+  background-color: #000000;
+}
+
+.SEIE .rectangle-4 {
+  position: absolute;
+  width: 256px;
+  height: 35px;
+  top: 0;
+  left: 0;
+  background-color: #13cf31;
+}
+
+.SEIE .text-wrapper-4 {
+  position: absolute;
+  width: 244px;
+  height: 34px;
+  top: 1px;
+  left: 12px;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: 4.03px;
+  line-height: 15.6px;
+}
+
+.SEIE .rectangle-5 {
+  position: absolute;
+  width: 31px;
+  height: 35px;
+  top: 0;
+  left: 225px;
+  background-color: #f7f7f7;
+}
+
+.SEIE .arrow-2 {
+  position: absolute;
+  width: 1px;
+  height: 11px;
+  top: 13px;
+  left: 241px;
+}
+
+.SEIE .bannire-entreprise {
+  position: absolute;
+  width: 698px;
+  height: 64px;
+  top: 0;
+  left: 0;
+}
+
+.SEIE .overlap-wrapper {
+  width: 698px;
+  left: 744px;
+  position: absolute;
+  height: 64px;
+  top: 0;
+}
+
+.SEIE .text-wrapper-5 {
+  position: absolute;
+  width: 334px;
+  height: 64px;
+  top: 0;
+  left: 210px;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 4.65px;
+  line-height: 18px;
+}
+
+.SEIE .affichage {
+  position: absolute;
+  width: 380px;
+  height: 335px;
+  top: 81px;
+  left: 326px;
+}
+
+.SEIE .overlap {
+  position: relative;
+  width: 372px;
+  height: 335px;
+  background-color: #13cf31;
+}
+
+.SEIE .div-wrapper {
+  position: absolute;
+  width: 125px;
+  height: 64px;
+  top: 0;
+  left: 0;
+  background-color: #fff5f5;
+}
+
+.SEIE .text-wrapper-6 {
+  width: 93px;
+  height: 34px;
+  top: 14px;
+  left: 14px;
+  letter-spacing: -0.26px;
+  position: absolute;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  line-height: 15.6px;
+}
+
+.SEIE .overlap-group-4 {
+  position: absolute;
+  width: 247px;
+  height: 64px;
+  top: 0;
+  left: 125px;
+  background-color: #f7f7f7;
+}
+
+.SEIE .text-wrapper-7 {
+  position: absolute;
+  width: 103px;
+  height: 34px;
+  top: 14px;
+  left: 27px;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: 0.26px;
+  line-height: 15.6px;
+}
+
+.SEIE .text-wrapper-8 {
+  position: absolute;
+  width: 136px;
+  top: 70px;
+  left: 9px;
+  font-family: "Inter", Helvetica;
+  font-weight: 800;
+  color: #ffffff;
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: 15.6px;
+}
+
+.SEIE .text-wrapper-9 {
+  position: absolute;
+  width: 218px;
+  top: 70px;
+  left: 152px;
+  font-family: "Inter", Helvetica;
+  font-weight: 800;
+  color: #ffffff;
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: 15.6px;
+}
+
+.SEIE .financement {
+  position: absolute;
+  width: 698px;
+  height: 416px;
+  top: 524px;
+  left: 0;
+}
+
+.SEIE .selction-secteur-2 {
+  width: 260px;
+  height: 188px;
+  top: 81px;
+  position: absolute;
+  left: 0;
+}
+
+.SEIE .overlap-group-5 {
+  position: relative;
+  width: 256px;
+  height: 188px;
+}
+
+.SEIE .rectangle-6 {
+  width: 248px;
+  height: 155px;
+  left: 8px;
+  position: absolute;
+  top: 33px;
+  background-color: #fff5f5;
+}
+
+.SEIE .nergies {
+  position: absolute;
+  width: 198px;
+  top: 51px;
+  left: 17px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 13px;
+  text-align: center;
+  line-height: 15.6px;
+}
+
+.SEIE .span {
+  letter-spacing: 1.3px;
+}
+
+.SEIE .text-wrapper-10 {
+  font-weight: 500;
+  letter-spacing: 4.03px;
+}
+
+.SEIE .rectangle-7 {
+  height: 154px;
+  left: 225px;
+  position: absolute;
+  width: 31px;
+  top: 34px;
+  background-color: #d9d9d9;
+  border-radius: 11px;
+}
+
+.SEIE .affichage-2 {
+  position: absolute;
+  width: 382px;
+  height: 335px;
+  top: 81px;
+  left: 326px;
+}
+
+.SEIE .overlap-2 {
+  position: absolute;
+  width: 136px;
+  height: 252px;
+  top: 70px;
+  left: 9px;
+}
+
+.SEIE .element-n-a-n-a-n-a-n-a-n {
+  position: absolute;
+  width: 136px;
+  top: 0;
+  left: 0;
+  font-family: "Inter", Helvetica;
+  font-weight: 800;
+  color: #ffffff;
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: 15.6px;
+}
+
+.SEIE .text-wrapper-11 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: "Inter", Helvetica;
+  font-weight: 800;
+  color: #ffffff;
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: 15.6px;
+  white-space: nowrap;
+}
+
+.SEIE .overlap-3 {
+  position: absolute;
+  width: 1448px;
+  height: 192px;
+  top: 0;
+  left: 0;
+}
+
+.SEIE .footer {
+  position: absolute;
+  width: 1448px;
+  height: 192px;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+}
+
+.SEIE .overlap-4 {
+  position: absolute;
+  width: 1440px;
+  height: 123px;
+  top: 0;
+  left: 0;
+  background-color: #13d032;
+}
+
+.SEIE .rectangle-8 {
+  position: absolute;
+  width: 647px;
+  height: 61px;
+  top: 31px;
+  left: 793px;
+  background-color: #569edf;
+  border-radius: 49px 0px 0px 49px;
+  border: 3px solid;
+  border-color: #e8e8e8;
+}
+
+.SEIE .text-wrapper-12 {
+  position: absolute;
+  width: 159px;
+  height: 29px;
+  top: 47px;
+  left: 834px;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 6.2px;
+  line-height: 24px;
+}
+
+.SEIE .text-wrapper-13 {
+  position: absolute;
+  width: 102px;
+  height: 29px;
+  top: 47px;
+  left: 1081px;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 6.2px;
+  line-height: 24px;
+}
+
+.SEIE .text-wrapper-14 {
+  position: absolute;
+  width: 80px;
+  height: 29px;
+  top: 47px;
+  left: 1319px;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 6.2px;
+  line-height: 24px;
+}
+
+.SEIE .p {
+  position: absolute;
+  width: 1001px;
+  height: 62px;
+  top: 130px;
+  left: 309px;
+  font-family: "Karma", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 3.12px;
+  line-height: 29.3px;
+}
+
+.SEIE .LOGO {
+  position: absolute;
+  width: 344px;
+  height: 103px;
+  top: 10px;
+  left: 19px;
+}
+
+.SEIE .text-wrapper-15 {
+  position: absolute;
+  width: 211px;
+  height: 78px;
+  top: 19px;
+  left: 129px;
+  -webkit-text-stroke: 2px #019e1a;
+  font-family: "Magneto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 40px;
+  letter-spacing: 8.4px;
+  line-height: normal;
+}
+
+.SEIE .game-icons-ecology {
+  position: absolute;
+  width: 109px;
+  height: 103px;
+  top: 0;
+  left: 0;
+}
+
+.SEIE .entreprise {
+  position: absolute;
+  width: 690px;
+  height: 416px;
+  top: 247px;
+  left: 0;
+}
+
+.SEIE .bannire-entreprise-2 {
+  width: 690px;
+  left: 0;
+  position: absolute;
+  height: 64px;
+  top: 0;
+}
+
+.SEIE .overlap-5 {
+  position: relative;
+  width: 688px;
+  height: 64px;
+  background-color: #569edf;
+}
+
+.SEIE .text-wrapper-16 {
+  position: absolute;
+  width: 272px;
+  height: 64px;
+  top: 0;
+  left: 208px;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 4.65px;
+  line-height: 18px;
+}
+
+.SEIE .affichage-3 {
+  position: absolute;
+  width: 380px;
+  height: 335px;
+  top: 81px;
+  left: 318px;
+}
+
+.SEIE .evolution-entreprise {
+  position: absolute;
+  width: 703px;
+  height: 308px;
+  top: 247px;
+  left: 737px;
+}
+
+.SEIE .selction-secteur-3 {
+  width: 257px;
+  height: 227px;
+  top: 80px;
+  position: absolute;
+  left: 0;
+}
+
+.SEIE .overlap-group-6 {
+  position: relative;
+  width: 253px;
+  height: 227px;
+}
+
+.SEIE .rectangle-9 {
+  width: 253px;
+  height: 194px;
+  left: 0;
+  position: absolute;
+  top: 33px;
+  background-color: #fff5f5;
+}
+
+.SEIE .alimentation-2 {
+  position: absolute;
+  width: 128px;
+  top: 55px;
+  left: 50px;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 4.03px;
+  line-height: 15.6px;
+}
+
+.SEIE .rectangle-10 {
+  height: 193px;
+  left: 223px;
+  position: absolute;
+  width: 31px;
+  top: 34px;
+  background-color: #d9d9d9;
+  border-radius: 11px;
+}
+
+.SEIE .rectangle-11 {
+  position: absolute;
+  width: 31px;
+  height: 22px;
+  top: 72px;
+  left: 223px;
+  background-color: #000000;
+}
+
+.SEIE .rectangle-12 {
+  position: absolute;
+  width: 253px;
+  height: 35px;
+  top: 0;
+  left: 0;
+  background-color: #13cf31;
+}
+
+.SEIE .text-wrapper-17 {
+  position: absolute;
+  width: 242px;
+  height: 34px;
+  top: 1px;
+  left: 12px;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: 4.03px;
+  line-height: 15.6px;
+}
+
+.SEIE .rectangle-13 {
+  position: absolute;
+  width: 31px;
+  height: 35px;
+  top: 0;
+  left: 223px;
+  background-color: #f7f7f7;
+}
+
+.SEIE .arrow-3 {
+  position: absolute;
+  width: 1px;
+  height: 11px;
+  top: 13px;
+  left: 239px;
+}
+
+.SEIE .bannire-entreprise-3 {
+  width: 705px;
+  left: 0;
+  position: absolute;
+  height: 64px;
+  top: 0;
+}
+
+.SEIE .overlap-6 {
+  position: relative;
+  width: 703px;
+  height: 64px;
+  background-color: #569edf;
+}
+
+.SEIE .text-wrapper-18 {
+  position: absolute;
+  width: 278px;
+  height: 64px;
+  top: 0;
+  left: 241px;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 4.65px;
+  line-height: 18px;
+}
+
+.SEIE .affichage-4 {
+  position: absolute;
+  width: 460px;
+  height: 229px;
+  top: 79px;
+  left: 267px;
+}
+
+.SEIE .overlap-7 {
+  position: relative;
+  width: 436px;
+  height: 229px;
+}
+
+.SEIE .rectangle-14 {
+  position: absolute;
+  width: 429px;
+  height: 229px;
+  top: 0;
+  left: 0;
+  background-color: #13cf31;
+}
+
+.SEIE .rectangle-15 {
+  position: absolute;
+  width: 144px;
+  height: 44px;
+  top: 0;
+  left: 0;
+  background-color: #fff5f5;
+}
+
+.SEIE .rectangle-16 {
+  position: absolute;
+  width: 285px;
+  height: 44px;
+  top: 0;
+  left: 144px;
+  background-color: #f7f7f7;
+}
+
+.SEIE .text-wrapper-19 {
+  position: absolute;
+  width: 93px;
+  height: 23px;
+  top: 9px;
+  left: 10px;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: -0.26px;
+  line-height: 15.6px;
+}
+
+.SEIE .text-wrapper-20 {
+  position: absolute;
+  width: 48px;
+  height: 23px;
+  top: 10px;
+  left: 120px;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: 0.26px;
+  line-height: 15.6px;
+}
+
+.SEIE .text-wrapper-21 {
+  position: absolute;
+  width: 27px;
+  height: 23px;
+  top: 10px;
+  left: 191px;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: 0.26px;
+  line-height: 15.6px;
+}
+
+.SEIE .text-wrapper-22 {
+  position: absolute;
+  width: 27px;
+  height: 23px;
+  top: 10px;
+  left: 259px;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: 0.26px;
+  line-height: 15.6px;
+}
+
+.SEIE .text-wrapper-23 {
+  position: absolute;
+  width: 27px;
+  height: 23px;
+  top: 11px;
+  left: 395px;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: 0.26px;
+  line-height: 15.6px;
+}
+
+.SEIE .text-wrapper-24 {
+  width: 58px;
+  height: 23px;
+  top: 10px;
+  left: 328px;
+  letter-spacing: 0.26px;
+  position: absolute;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 13px;
+  line-height: 15.6px;
+}
+
+.SEIE .biogourmet-ecomode {
+  position: absolute;
+  width: 104px;
+  top: 48px;
+  left: 10px;
+  font-family: "Inter", Helvetica;
+  font-weight: 800;
+  color: #ffffff;
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: 15.6px;
+}
+
+.SEIE .element-n-a {
+  position: absolute;
+  width: 56px;
+  height: 161px;
+  top: 49px;
+  left: 109px;
+  font-family: "Inter", Helvetica;
+  font-weight: 800;
+  color: #ffffff;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 15.6px;
+}
+
+.SEIE .element {
+  position: absolute;
+  width: 57px;
+  height: 161px;
+  top: 49px;
+  left: 177px;
+  font-family: "Inter", Helvetica;
+  font-weight: 800;
+  color: #ffffff;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 15.6px;
+}
+
+.SEIE .element-2 {
+  left: 322px;
+  position: absolute;
+  width: 57px;
+  height: 161px;
+  top: 48px;
+  font-family: "Inter", Helvetica;
+  font-weight: 800;
+  color: #ffffff;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 15.6px;
+}
+
+.SEIE .element-3 {
+  left: 249px;
+  position: absolute;
+  width: 57px;
+  height: 161px;
+  top: 48px;
+  font-family: "Inter", Helvetica;
+  font-weight: 800;
+  color: #ffffff;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 15.6px;
+}
+
+.SEIE .element-n-a-2 {
+  position: absolute;
+  width: 57px;
+  top: 48px;
+  left: 378px;
+  font-family: "Inter", Helvetica;
+  font-weight: 800;
+  color: #ffffff;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 15.6px;
+}
