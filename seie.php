@@ -67,7 +67,7 @@
   <h1>Sensibilisation des entreprises aux initiatives écologiques</h1>
 
   <hr>
-  
+
   <div class="part1">
     <h2>Information sur les entreprises d'un secteur</h2>
 
@@ -223,15 +223,14 @@
         </form>
 
         <?php
-        $choixMinSubvention = 0;
+        $choixMinSubvention = 1;
         // Traitement de la sélection
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["minSubvention"])) {
           // Récupérer la valeur sélectionnée dans la liste déroulante
           $choixMinSubvention = $_POST["minSubvention"];
         }
         ?>
-        <p>minimun : <?php echo $choixMinSubvention ?>
-        <p>
+        <p>minimun : <?php echo $choixMinSubvention ?><p>
 
           <?php
 
