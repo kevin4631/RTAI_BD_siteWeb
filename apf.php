@@ -28,6 +28,7 @@
             <a class="text-wrapper-12" href="index.html">Accueil</a>
             <a class="text-wrapper-12" href="seie.php">SEIE</a>
             <a class="text-wrapper-12" href="aree.php">AREE</a>
+            <a class="text-wrapper-12" href="apf.php">APF</a>
         </div>
     </header>
 
