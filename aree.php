@@ -211,9 +211,6 @@
 
                 <?php
 
-                $secteurs = array();
-                $investissements = array();
-
                 foreach ($result as $row) {
                     echo '<tr>';
                     echo '<td>' . $row['nomE'] . ' </td>';
