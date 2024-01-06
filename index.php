@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8">
@@ -19,7 +19,7 @@
 </head>
 
 <body>
-  <?php include "page_head.php"; ?>
+  <?php include "header.php"; ?>
 
   <img src="img/beautiful-sustainability-concept.png" alt="">
 </body>

@@ -48,7 +48,7 @@
 
 <body>
 
-  <?php include "page_head.php"; ?>
+  <?php include "header.php"; ?>
 
   <h1>Sensibilisation des entreprises aux initiatives écologiques</h1>
 

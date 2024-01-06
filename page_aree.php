@@ -43,7 +43,7 @@
 
 <body>
 
-    <?php include "page_head.php"; ?>
+    <?php include "header.php"; ?>
 
     <h1>Analyse de la réputation et de l'évolution des entreprises</h1>
 

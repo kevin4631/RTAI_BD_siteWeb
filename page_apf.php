@@ -58,7 +58,7 @@
 
 <body>
 
-    <?php include "page_head.php"; ?>
+    <?php include "header.php"; ?>
 
     <h1>Analyse des programmes de financement</h1>
 
