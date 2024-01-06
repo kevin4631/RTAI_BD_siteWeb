@@ -87,10 +87,11 @@
         $result = Utils::query($connexion, $sql);
 
         Utils::disconnect($connexion);
+        $secteur = $result[0][0];
       }
       ?>
 
-      <form method="post">
+      <form action="seie.php" method="post">
         Choisir un secteur:
         <select name="list">
           <option value="">--choose an option--</option>
@@ -106,12 +107,12 @@
 
       <?php
       // Traitement de la sélection
-      if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["list"])) {
+      if (isset($_POST["list"])) {
         // Récupérer la valeur sélectionnée dans la liste déroulante
-        $choix = $_POST["list"];
+        $secteur = $_POST["list"];
       }
       ?>
-      <h3>Secteur : <?php echo $choix ?><h3>
+      <h3>Secteur : <?php echo $secteur ?><h3>
     </section>
 
     <div class="section1">
@@ -125,7 +126,7 @@
           $sql = "SELECT E.nomE, A.nomA, A.anneeA, A.nbLike
               FROM Entreprise E, Action A
               WHERE E.nomE = A.nomE
-              AND E.secteur = '$choix'
+              AND E.secteur = '$secteur'
               ORDER BY E.nomE ASC, A.anneeA ASC;";
 
           //interoger la bbd
@@ -217,7 +218,7 @@
       <section id="subvention_secteur">
         <br><br><br>
 
-        <form method="post">
+        <form action="seie.php" method="post">
           nombre minimun de subvention :
           <input type="number" name="minSubvention" value="1">
           <input type="submit" value="Soumettre">
@@ -226,12 +227,13 @@
         <?php
         $choixMinSubvention = 1;
         // Traitement de la sélection
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["minSubvention"])) {
+        if (isset($_POST["minSubvention"])) {
           // Récupérer la valeur sélectionnée dans la liste déroulante
           $choixMinSubvention = $_POST["minSubvention"];
         }
         ?>
-        <p>minimun : <?php echo $choixMinSubvention ?><p>
+        <p>minimun : <?php echo $choixMinSubvention ?>
+        <p>
 
           <?php
 
@@ -283,8 +285,6 @@
           ?>
         </table>
         <br>
-
-
       </section>
 
       <canvas id="chart1"></canvas>
