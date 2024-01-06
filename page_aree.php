@@ -4,19 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Aree</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
     <style>
         body {
             margin: 0;
-        }
-
-        header {
-            display: flex;
-            background-color: green;
+            background-color: #FFF5EE;
         }
 
         input {
-            width: 50px;
+            width: 70px;
         }
 
         h1 {
@@ -45,18 +43,7 @@
 
 <body>
 
-    <header>
-        <div class="logo">
-            <img class="game-icons-ecology" src="img/game-icons-ecology.png" />
-        </div>
-
-        <div class="header_link">
-            <a class="text-wrapper-12" href="index.html">Accueil</a>
-            <a class="text-wrapper-12" href="seie.php">SEIE</a>
-            <a class="text-wrapper-12" href="aree.php">AREE</a>
-            <a class="text-wrapper-12" href="apf.php">APF</a>
-        </div>
-    </header>
+    <?php include "page_head.php"; ?>
 
     <h1>Analyse de la réputation et de l'évolution des entreprises</h1>
 
@@ -159,7 +146,7 @@
         <section class="section">
             <h2>Situation ecologique</h2>
 
-            <form method="post">
+            <form action="page_aree.php" method="post">
                 evolution entre
                 <input type="number" name="choix_annee1" value="2022">
                 et
@@ -201,12 +188,13 @@
 
             <table border="1">
                 <caption>
-                    <th colspan="3">Amelioration écologique Entreprise</th>
+                    <th colspan="4">Amelioration écologique Entreprise</th>
                 </caption>
                 <tr>
                     <th>Entreprise</th>
                     <th>Carbone <?php echo $anne1; ?></th>
                     <th>Carbone <?php echo $anne2; ?></th>
+                    <th>Difference</th>
                 </tr>
 
                 <?php
@@ -216,6 +204,8 @@
                     echo '<td>' . $row['nomE'] . ' </td>';
                     echo '<td>' . $row['q1'] . ' </td>';
                     echo '<td>' . $row['q2'] . ' </td>';
+                    $diff = 100 - (100 * $row['q2'] / $row['q1']);
+                    echo '<td>-' . $diff . '%</td>';
                     echo '</tr>';
                 }
                 ?>

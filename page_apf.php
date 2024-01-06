@@ -4,17 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Apf</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
     <style>
         body {
             margin: 0;
-        }
-
-        header {
-            display: flex;
-            background-color: green;
+            background-color: #FFF5EE;
         }
 
         h1 {
@@ -52,23 +48,17 @@
             max-height: 400px;
             max-width: 600px;
         }
+
+        #chart2 {
+            max-height: 400px;
+            max-width: 600px;
+        }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">
-            <img class="game-icons-ecology" src="img/game-icons-ecology.png" />
-        </div>
-
-        <div class="header_link">
-            <a class="text-wrapper-12" href="index.html">Accueil</a>
-            <a class="text-wrapper-12" href="seie.php">SEIE</a>
-            <a class="text-wrapper-12" href="aree.php">AREE</a>
-            <a class="text-wrapper-12" href="apf.php">APF</a>
-        </div>
-    </header>
+    <?php include "page_head.php"; ?>
 
     <h1>Analyse des programmes de financement</h1>
 
@@ -236,6 +226,28 @@
 
             <p>Il y a <?php echo $result3[0][0]; ?> action financé sur <?php echo $result2[0][0]; ?> soit <?php echo $result1[0][0]; ?> % d'action financé</p>
 
+            <canvas id="chart2"></canvas>
+
+            <script>
+                var actionF = <?php echo json_encode($result3[0][0]); ?>;
+                var actionNotF = <?php echo json_encode($result2[0][0] - $result3[0][0]); ?>;
+
+
+                let ctx2 = document.getElementById("chart2").getContext('2d');
+                let data2 = {
+                    labels: ['Action financée', 'Action non financé'],
+                    datasets: [{
+                        label: 'nb action',
+                        data: [actionF, actionNotF],
+                        backgroundColor: ['rgb(1, 157, 27)', 'rgb(255, 99, 132)']
+                    }]
+                };
+
+                let myChart2 = new Chart(ctx2, {
+                    type: 'doughnut',
+                    data: data2,
+                });
+            </script>
         </section>
     </div>
 

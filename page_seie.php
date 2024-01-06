@@ -4,17 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Seie</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
   <Style>
     body {
       margin: 0;
-    }
-
-    header {
-      display: flex;
-      background-color: green;
+      background-color: #FFF5EE;
     }
 
     h1 {
@@ -52,18 +48,7 @@
 
 <body>
 
-  <header>
-    <div class="logo">
-      <img class="game-icons-ecology" src="img/game-icons-ecology.png" />
-    </div>
-
-    <div class="header_link">
-      <a class="text-wrapper-12" href="index.html">Accueil</a>
-      <a class="text-wrapper-12" href="seie.php">SEIE</a>
-      <a class="text-wrapper-12" href="aree.php">AREE</a>
-      <a class="text-wrapper-12" href="apf.php">APF</a>
-    </div>
-  </header>
+  <?php include "page_head.php"; ?>
 
   <h1>Sensibilisation des entreprises aux initiatives écologiques</h1>
 
@@ -91,7 +76,7 @@
       }
       ?>
 
-      <form action="seie.php" method="post">
+      <form action="page_seie.php" method="post">
         Choisir un secteur:
         <select name="list">
           <option value="">--choose an option--</option>
@@ -170,7 +155,7 @@
           $sql = "SELECT EE.nomE, EE.anneeEE, EE.chiffreAffaire, EE.montantTotalInvestisement, EE.nbRecrutement, EE.quantiteCarbone
               FROM EvolutionEntreprise EE, Entreprise E
               WHERE EE.nomE = E.nomE
-              AND E.secteur = '$choix'
+              AND E.secteur = '$secteur'
               ORDER BY EE.nomE ASC;";
 
           //interoger la bbd
@@ -218,7 +203,7 @@
       <section id="subvention_secteur">
         <br><br><br>
 
-        <form action="seie.php" method="post">
+        <form action="page_seie.php" method="post">
           nombre minimun de subvention :
           <input type="number" name="minSubvention" value="1">
           <input type="submit" value="Soumettre">
