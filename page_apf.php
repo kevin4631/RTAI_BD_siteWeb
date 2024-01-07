@@ -88,7 +88,7 @@
                 include_once("utils.php");
                 $connexion = Utils::connect();
                 if ($connexion) {
-                    //faire la requette sql
+                    //Évolution par année du montant total reçu par les actions subventionnées
                     $sql = "SELECT F.anneeF, SUM(F.montantF) AS montantTotal
                             FROM Financer F
                             GROUP BY F.anneeF;";
@@ -162,7 +162,7 @@
             include_once("utils.php");
             $connexion = Utils::connect();
             if ($connexion) {
-                //faire la requette sql
+                //Types d'actions sans programme de financement
                 $sql1 = "SELECT categorie
                         FROM TypeAction
                         WHERE idTA NOT IN(
@@ -171,6 +171,7 @@
 
                 //nb de TypeAction
                 $sql2 = "SELECT COUNT(*) AS nbTA FROM TypeAction;";
+                
                 //nb de TypeAction  sans programme de financement
                 $sql3 = "SELECT (SELECT COUNT(*) FROM TypeAction) - COUNT(DISTINCT idTA) AS TypeAsansF
                         FROM Eligible;";
@@ -194,8 +195,6 @@
             }
             ?>
 
-
-
         </section>
 
         <section class="section">
@@ -206,12 +205,13 @@
             include_once("utils.php");
             $connexion = Utils::connect();
             if ($connexion) {
-                //faire la requette sql
+                //Pourcentage d'actions qui ont été financées
                 $sql1 = "SELECT (SELECT COUNT(DISTINCT idA) FROM Financer) * 100.0 / COUNT(idA) AS prActionsFinancees
                         FROM Action;";
 
                 //nb action
                 $sql2 = "SELECT COUNT(*) AS nbActions FROM Action;";
+                
                 //nb action financé
                 $sql3 = "SELECT COUNT(DISTINCT idA) AS nbActionF FROM Financer;";
 

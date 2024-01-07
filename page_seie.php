@@ -63,7 +63,7 @@
       include_once("utils.php");
       $connexion = Utils::connect();
       if ($connexion) {
-        //faire la requette sql
+        //liste de tout les secteur
         $sql = "SELECT DISTINCT E.secteur
           FROM Entreprise E
           ORDER BY E.secteur ASC;";
@@ -107,7 +107,7 @@
         include_once("utils.php");
         $connexion = Utils::connect();
         if ($connexion) {
-          //faire la requette sql
+          //entreprises d'un secteur donné et leurs actions
           $sql = "SELECT E.nomE, A.nomA, A.anneeA, A.nbLike
               FROM Entreprise E, Action A
               WHERE E.nomE = A.nomE
@@ -151,7 +151,7 @@
         include_once("utils.php");
         $connexion = Utils::connect();
         if ($connexion) {
-          //faire la requette sql
+          //Informations sur l'évolution dans le temps des entreprises d'un secteur donné
           $sql = "SELECT EE.nomE, EE.anneeEE, EE.chiffreAffaire, EE.montantTotalInvestisement, EE.nbRecrutement, EE.quantiteCarbone
               FROM EvolutionEntreprise EE, Entreprise E
               WHERE EE.nomE = E.nomE
@@ -226,7 +226,7 @@
           include_once("utils.php");
           $connexion = Utils::connect();
           if ($connexion) {
-            //faire la requette sql
+            //Nombre d'actions subventionnées et montant total des subventions reçues par secteur
             $sql = "SELECT E.secteur, COUNT(A.idA) nbAction, SUM(F.montantF) montantTotal
               FROM Financer F, Action A, Entreprise E
               WHERE F.idA = A.idA

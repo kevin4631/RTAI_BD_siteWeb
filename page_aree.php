@@ -61,7 +61,7 @@
             include_once("utils.php");
             $connexion = Utils::connect();
             if ($connexion) {
-                //faire la requette sql
+                //L'entreprise qui a obtenu le plus grand nombre d'actions certifiées
                 $sql1 = "SELECT nomE, COUNT(idA) AS nbActionL
                     FROM(
                         SELECT A.nomE, L.idA
@@ -80,6 +80,7 @@
                                 GROUP BY L.idA) AS tab
                             GROUP BY nomE ) AS tab);";
 
+                //entreprise qui a obtenu l'action la plus certifié
                 $sql2 = "SELECT A.nomE, A.nomA, COUNT(L.idA) AS nbL
                     FROM Action A, Labeliser L
                     WHERE A.IdA = L.IdA
@@ -91,6 +92,7 @@
                             FROM Labeliser L
                             GROUP BY L.idA) AS tab);";
 
+                //entreprise qui a obtenu le plus grand nombre de certification
                 $sql3 = "SELECT A.nomE, COUNT(L.idA) AS certification
                     FROM Action A, Labeliser L
                     WHERE A.IdA = L.IdA
@@ -159,7 +161,7 @@
             $anne1 = 2022;
             $anne2 = 2023;
             // Traitement de la sélection
-            if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["choix_annee1"]) && isset($_POST["choix_annee2"])) {
+            if (isset($_POST["choix_annee1"]) && isset($_POST["choix_annee2"])) {
                 // Récupérer la valeur sélectionnée dans la liste déroulante
                 $anne1 = $_POST["choix_annee1"];
                 $anne2 = $_POST["choix_annee2"];
@@ -171,7 +173,7 @@
             include_once("utils.php");
             $connexion = Utils::connect();
             if ($connexion) {
-                //faire la requette sql
+                //Les entreprises dont la situation écologique s'est améliorée entre deux années données
                 $sql = "SELECT Ev1.nomE, Ev1.quantiteCarbone AS q1, Ev2.quantiteCarbone AS q2
                         FROM EvolutionEntreprise Ev1, EvolutionEntreprise Ev2
                         WHERE Ev1.anneeEE = $anne1
