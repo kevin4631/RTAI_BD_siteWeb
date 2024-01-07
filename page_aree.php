@@ -150,7 +150,7 @@
 
             <form action="page_aree.php" method="post">
                 evolution entre
-                <input type="number" name="choix_annee1" value="2022">
+                <input type="number" name="choix_annee1" value="2015">
                 et
                 <input type="number" name="choix_annee2" value="2023">
 
@@ -158,7 +158,7 @@
             </form>
 
             <?php
-            $anne1 = 2022;
+            $anne1 = 2015;
             $anne2 = 2023;
             // Traitement de la sélection
             if (isset($_POST["choix_annee1"]) && isset($_POST["choix_annee2"])) {

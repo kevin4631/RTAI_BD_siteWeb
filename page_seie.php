@@ -156,7 +156,7 @@
               FROM EvolutionEntreprise EE, Entreprise E
               WHERE EE.nomE = E.nomE
               AND E.secteur = '$secteur'
-              ORDER BY EE.nomE ASC;";
+              ORDER BY EE.nomE ASC, EE.anneeEE DESC;";
 
           //interoger la bbd
           $result = Utils::query($connexion, $sql);
