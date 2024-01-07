@@ -44,7 +44,7 @@
 <body>
     <header>
         <div class="logo">
-            <img class="game-icons-ecology" src="img/game-icons-ecology.png" />
+            <img src="img/game-icons-ecology.png" />
             <h1>OBERE</h1>
         </div>
 
