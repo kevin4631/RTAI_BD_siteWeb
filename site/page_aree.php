@@ -63,14 +63,12 @@
                         FROM Entreprise E
                         JOIN Action A ON E.nomE = A.nomE
                         GROUP BY E.nomE, A.nomA
-                        ORDER BY TotalLikes DESC;
+                        ORDER BY E.nomE ASC, TotalLikes DESC;
                         ";
 
                 $sql2 = "SELECT PS.nomE AS Entreprise, PS.idTA AS TypeAction, PL.label AS Certification
                 FROM PeutSoutenir PS
                 INNER JOIN PeutLabeliser PL ON PS.nomE = PL.nomE AND PS.idTA = PL.idTA;";
-
-    
 
                 //interoger la bbd
                 $result1 = Utils::query($connexion, $sql1);
@@ -82,11 +80,24 @@
             ?>
 
             <h4>Classement des Entreprises selon le Nombre de Likes pour leurs Actions :</h4>
-            <?php
-            foreach ($result1 as $row) {
-                echo '- ' . $row['Entreprise'] . ' avec ' . $row['TotalLikes'] . ' likes obtenu pour action : ' .$row['Action'] .'<br>' ;
-            }
-            ?>
+
+            <table border="1">
+                <tr>
+                    <th>Entreprise</th>
+                    <th>Like</th>
+                    <th>Action</th>
+                </tr>
+
+                <?php
+                foreach ($result1 as $row) {
+                    echo '<tr>';
+                    echo '<td>' . $row['Entreprise'] . ' </td>';
+                    echo '<td>' . $row['TotalLikes'] . ' </td>';
+                    echo '<td>' . $row['Action'] . ' </td>';
+                    echo '</tr>';
+                }
+                ?>
+            </table>
 
             <h4>Entreprises qui proposent de l'aide et qui fournissent également des certifications :</h4>
             <?php
@@ -94,7 +105,7 @@
                 echo '- ' . $row['Entreprise'] . ' fournie une certification : ' . $row['Certification'] .  ' <br>';
             }
 
-    
+
             ?>
         </section>
 
@@ -194,46 +205,46 @@
             include_once("utils.php");
             $connexion = Utils::connect();
             if ($connexion) {
-              //faire la requette sql
-            $sql = "SELECT nomE AS Entreprise
+                //faire la requette sql
+                $sql = "SELECT nomE AS Entreprise
             FROM Entreprise;";
 
-            //interoger la bbd
-            $result = Utils::query($connexion, $sql);
+                //interoger la bbd
+                $result = Utils::query($connexion, $sql);
 
-            Utils::disconnect($connexion);
-            $entrepriseSelectionnee = $result[0][0];
-        }
-        ?>
+                Utils::disconnect($connexion);
+                $entrepriseSelectionnee = $result[0][0];
+            }
+            ?>
 
-      <form action="page_aree.php" method="post">
-        Choisir une entreprise:
-        <select name="list">
-          <option value="">--choose an option--</option>
-          <?php
-          foreach ($result as $row) {
-            echo '<option value="' . $row['Entreprise'] . '">' . $row['Entreprise'] . '</option>';
-          }
-          ?>
-        </select>
-        <input type="submit" value="Soumettre">
-      </form>
+            <form action="page_aree.php" method="post">
+                Choisir une entreprise:
+                <select name="list">
+                    <option value="">--choose an option--</option>
+                    <?php
+                    foreach ($result as $row) {
+                        echo '<option value="' . $row['Entreprise'] . '">' . $row['Entreprise'] . '</option>';
+                    }
+                    ?>
+                </select>
+                <input type="submit" value="Soumettre">
+            </form>
 
-      <?php
-      // Traitement de la sélection
-      if (isset($_POST["list"])) {
-        // Récupérer la valeur sélectionnée dans la liste déroulante
-        $entrepriseSelectionnee = $_POST["list"];
-      }
-      ?>
+            <?php
+            // Traitement de la sélection
+            if (isset($_POST["list"])) {
+                // Récupérer la valeur sélectionnée dans la liste déroulante
+                $entrepriseSelectionnee = $_POST["list"];
+            }
+            ?>
 
-        <?php
-        //Se conecter
-        include_once("utils.php");
-        $connexion = Utils::connect();
-        if ($connexion) {
-          //faire la requette sql
-          $sql = "SELECT
+            <?php
+            //Se conecter
+            include_once("utils.php");
+            $connexion = Utils::connect();
+            if ($connexion) {
+                //faire la requette sql
+                $sql = "SELECT
           nomE AS Entreprise,
           anneeEE AS Annee,
           chiffreAffaire AS ChiffreAffaire,
@@ -251,12 +262,12 @@
             WHERE nomE = '$entrepriseSelectionnee'
             ORDER BY anneeEE;";
 
-          //interoger la bbd
-          $result = Utils::query($connexion, $sql);
+                //interoger la bbd
+                $result = Utils::query($connexion, $sql);
 
-          Utils::disconnect($connexion);
-        }
-        ?>
+                Utils::disconnect($connexion);
+            }
+            ?>
             <table border="1">
                 <caption>
                     <th colspan="5">Entreprise et leur evolution par an</th>
@@ -283,7 +294,7 @@
                 ?>
             </table>
         </section>
-        
+
         <section class="section">
             <h2>Situation ecologique</h2>
 

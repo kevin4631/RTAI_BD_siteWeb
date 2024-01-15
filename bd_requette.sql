@@ -56,7 +56,7 @@ SELECT E.nomE AS Entreprise, A.nomA AS Action, SUM(A.nbLike) AS TotalLikes
 FROM Entreprise E
 JOIN Action A ON E.nomE = A.nomE
 GROUP BY E.nomE, A.nomA
-ORDER BY TotalLikes DESC;
+ORDER BY E.nomE ASC, TotalLikes DESC;
 
 
 /* R6. L'entreprise qui a obtenu le plus grand nombre d'actions certifiées. */
