@@ -20,8 +20,9 @@
 
 <body>
   <?php include "header.php"; ?>
+  
 
   <img src="img/beautiful-sustainability-concept.png" alt="">
 </body>
-
+<?php include "footer.php"; ?>
 </html>

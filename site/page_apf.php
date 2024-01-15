@@ -66,11 +66,131 @@
 
     <div class="section1">
         <section class="section">
-            <h2>F2</h2>
-        </section>
+            <h2>Information sur les type d'action financé</h2>
 
+            <?php
+            include_once("utils.php");
+            $connexion = Utils::connect();
+            if ($connexion) {
+              //faire la requette sql
+            $sql = "SELECT nomPF AS ProgrammeFinancement
+            FROM
+            ProgrammeFinancement;";
+
+            //interoger la bbd
+            $result = Utils::query($connexion, $sql);
+
+            Utils::disconnect($connexion);
+            $ProgrammeSelectionnee = $result[0][0];
+        }
+        ?>
+
+      <form action="page_apf.php" method="post">
+        Choisir un programme:
+        <select name="list">
+          <option value="">--choose an option--</option>
+          <?php
+          foreach ($result as $row) {
+            echo '<option value="' . $row['ProgrammeFinancement'] . '">' . $row['ProgrammeFinancement'] . '</option>';
+          }
+          ?>
+        </select>
+        <input type="submit" value="Soumettre">
+      </form>
+      <br><br>
+      <?php
+      // Traitement de la sélection
+      if (isset($_POST["list"])) {
+        // Récupérer la valeur sélectionnée dans la liste déroulante
+        $ProgrammeSelectionnee = $_POST["list"];
+      }
+      ?>
+
+        <?php
+        //Se conecter
+        include_once("utils.php");
+        $connexion = Utils::connect();
+        if ($connexion) {
+          //faire la requette sql
+          $sql1 = "SELECT
+          PF.nomPF AS ProgrammeFinancement,
+          TA.categorie AS TypeAction
+          FROM
+          ProgrammeFinancement PF
+          JOIN
+          Eligible E ON PF.nomPF = E.nomPF
+          JOIN
+          TypeAction TA ON E.idTA = TA.idTA
+          WHERE
+          PF.nomPF = '$ProgrammeSelectionnee';";
+
+          //interoger la bbd
+          $result1 = Utils::query($connexion, $sql1);
+
+          Utils::disconnect($connexion);
+        }
+        ?>
+         <?php
+            foreach ($result1 as $row) {
+                echo '- ' . $row['ProgrammeFinancement'] . ' finance ' . $row['TypeAction'] .'<br>' ;
+            }
+            ?>
+        </section>
+        
         <section class="section">
-            <h2>R9</h2>
+            <h2>Information sur les subventions attribuées par chaque programme de financement</h2>
+            <br>
+            <?php
+
+        //Se conecter
+        include_once("utils.php");
+        $connexion = Utils::connect();
+        if ($connexion) {
+            //faire la requette sql
+            $sql = "SELECT
+            PF.nomPF AS ProgrammeFinancement,
+            AVG(F.montantF) AS MontantMoyen,
+            MAX(F.montantF) AS MontantMaximum,
+            MIN(F.montantF) AS MontantMinimum,
+            COUNT(F.idA) AS NombreSubventionsAttribuees
+            FROM
+            ProgrammeFinancement PF
+            JOIN
+            Financer F ON PF.nomPF = F.nomPF
+            GROUP BY
+            PF.nomPF;";
+
+            //interoger la bbd
+            $result = Utils::query($connexion, $sql);
+
+            Utils::disconnect($connexion);
+        }
+        ?>
+
+        <table border="2">
+            <tr>
+                <th>Programme Financement</th>
+                <th>Montant Moyen</th>
+                <th>Montant Maximum</th>
+                <th>Montant Minimum</th>
+                <th>Nb Subventions Attribuees</th>
+            </tr>
+
+            <?php
+
+            foreach ($result as $row) {
+                echo '<tr>';
+                echo '<td>' . $row['ProgrammeFinancement'] . ' </td>';
+                echo '<td>' . $row['MontantMoyen'] . ' </td>';
+                echo '<td>' . $row['MontantMaximum'] . ' </td>';
+                echo '<td>' . $row['MontantMinimum'] . ' </td>';
+                echo '<td>' . $row['NombreSubventionsAttribuees'] . ' </td>';
+                echo '</tr>';
+
+            }
+            ?>
+        </table>
+        </section>
         </section>
     </div>
 
@@ -88,7 +208,7 @@
                 include_once("utils.php");
                 $connexion = Utils::connect();
                 if ($connexion) {
-                    //Évolution par année du montant total reçu par les actions subventionnées
+                    //faire la requette sql
                     $sql = "SELECT F.anneeF, SUM(F.montantF) AS montantTotal
                             FROM Financer F
                             GROUP BY F.anneeF;";
@@ -162,7 +282,7 @@
             include_once("utils.php");
             $connexion = Utils::connect();
             if ($connexion) {
-                //Types d'actions sans programme de financement
+                //faire la requette sql
                 $sql1 = "SELECT categorie
                         FROM TypeAction
                         WHERE idTA NOT IN(
@@ -171,7 +291,6 @@
 
                 //nb de TypeAction
                 $sql2 = "SELECT COUNT(*) AS nbTA FROM TypeAction;";
-                
                 //nb de TypeAction  sans programme de financement
                 $sql3 = "SELECT (SELECT COUNT(*) FROM TypeAction) - COUNT(DISTINCT idTA) AS TypeAsansF
                         FROM Eligible;";
@@ -195,6 +314,8 @@
             }
             ?>
 
+
+
         </section>
 
         <section class="section">
@@ -205,13 +326,12 @@
             include_once("utils.php");
             $connexion = Utils::connect();
             if ($connexion) {
-                //Pourcentage d'actions qui ont été financées
+                //faire la requette sql
                 $sql1 = "SELECT (SELECT COUNT(DISTINCT idA) FROM Financer) * 100.0 / COUNT(idA) AS prActionsFinancees
                         FROM Action;";
 
                 //nb action
                 $sql2 = "SELECT COUNT(*) AS nbActions FROM Action;";
-                
                 //nb action financé
                 $sql3 = "SELECT COUNT(DISTINCT idA) AS nbActionF FROM Financer;";
 
@@ -252,6 +372,7 @@
     </div>
 
     <br><br><br><br><br>
+    <?php include "footer.php"; ?>
 
 </body>
 

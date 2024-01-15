@@ -52,7 +52,52 @@
     <div class="section1">
         <section class="section">
             <h2>Entreprises et leur likes</h2>
+
+            <?php
+            //Se conecter
+            include_once("utils.php");
+            $connexion = Utils::connect();
+            if ($connexion) {
+                //faire la requette sql
+                $sql1 = "SELECT E.nomE AS Entreprise, A.nomA AS Action, SUM(A.nbLike) AS TotalLikes
+                        FROM Entreprise E
+                        JOIN Action A ON E.nomE = A.nomE
+                        GROUP BY E.nomE, A.nomA
+                        ORDER BY TotalLikes DESC;
+                        ";
+
+                $sql2 = "SELECT PS.nomE AS Entreprise, PS.idTA AS TypeAction, PL.label AS Certification
+                FROM PeutSoutenir PS
+                INNER JOIN PeutLabeliser PL ON PS.nomE = PL.nomE AND PS.idTA = PL.idTA;";
+
+    
+
+                //interoger la bbd
+                $result1 = Utils::query($connexion, $sql1);
+                $result2 = Utils::query($connexion, $sql2);
+
+
+                Utils::disconnect($connexion);
+            }
+            ?>
+
+            <h4>Classement des Entreprises selon le Nombre de Likes pour leurs Actions :</h4>
+            <?php
+            foreach ($result1 as $row) {
+                echo '- ' . $row['Entreprise'] . ' avec ' . $row['TotalLikes'] . ' likes obtenu pour action : ' .$row['Action'] .'<br>' ;
+            }
+            ?>
+
+            <h4>Entreprises qui proposent de l'aide et qui fournissent également des certifications :</h4>
+            <?php
+            foreach ($result2 as $row) {
+                echo '- ' . $row['Entreprise'] . ' fournie une certification : ' . $row['Certification'] .  ' <br>';
+            }
+
+    
+            ?>
         </section>
+
 
         <section class="section">
             <h2>Plus de précision sur les certification :</h2>
@@ -142,9 +187,103 @@
 
     <div class="section2">
         <section class="section">
-            <h2>Entreprises qui aide et qui certifie</h2>
-        </section>
+            <h2>Investissement des entreprise</h2>
+            <?php
 
+            //Se conecter
+            include_once("utils.php");
+            $connexion = Utils::connect();
+            if ($connexion) {
+              //faire la requette sql
+            $sql = "SELECT nomE AS Entreprise
+            FROM Entreprise;";
+
+            //interoger la bbd
+            $result = Utils::query($connexion, $sql);
+
+            Utils::disconnect($connexion);
+            $entrepriseSelectionnee = $result[0][0];
+        }
+        ?>
+
+      <form action="page_aree.php" method="post">
+        Choisir une entreprise:
+        <select name="list">
+          <option value="">--choose an option--</option>
+          <?php
+          foreach ($result as $row) {
+            echo '<option value="' . $row['Entreprise'] . '">' . $row['Entreprise'] . '</option>';
+          }
+          ?>
+        </select>
+        <input type="submit" value="Soumettre">
+      </form>
+
+      <?php
+      // Traitement de la sélection
+      if (isset($_POST["list"])) {
+        // Récupérer la valeur sélectionnée dans la liste déroulante
+        $entrepriseSelectionnee = $_POST["list"];
+      }
+      ?>
+
+        <?php
+        //Se conecter
+        include_once("utils.php");
+        $connexion = Utils::connect();
+        if ($connexion) {
+          //faire la requette sql
+          $sql = "SELECT
+          nomE AS Entreprise,
+          anneeEE AS Annee,
+          chiffreAffaire AS ChiffreAffaire,
+          montantTotalInvestisement AS MontantInvestissement,
+          nbRecrutement AS NombreRecrutements,
+          CONCAT(
+              CASE
+                  WHEN chiffreAffaire > 0
+                  THEN FORMAT((montantTotalInvestisement / chiffreAffaire) * 100, 2)
+                  ELSE 0
+              END,
+              '%'
+            ) AS PourcentageInvestissementVert
+            FROM EvolutionEntreprise
+            WHERE nomE = '$entrepriseSelectionnee'
+            ORDER BY anneeEE;";
+
+          //interoger la bbd
+          $result = Utils::query($connexion, $sql);
+
+          Utils::disconnect($connexion);
+        }
+        ?>
+            <table border="1">
+                <caption>
+                    <th colspan="5">Entreprise et leur evolution par an</th>
+                </caption>
+                <tr>
+                    <th>Entreprise</th>
+                    <th>Annee</th>
+                    <th>Investissement</th>
+                    <th>Nb Recrutements</th>
+                    <th>Investissement Vert</th>
+                </tr>
+
+                <?php
+
+                foreach ($result as $row) {
+                    echo '<tr>';
+                    echo '<td>' . $row['Entreprise'] . ' </td>';
+                    echo '<td>' . $row['Annee'] . ' </td>';
+                    echo '<td>' . $row['MontantInvestissement'] . ' </td>';
+                    echo '<td>' . $row['NombreRecrutements'] . ' </td>';
+                    echo '<td>' . $row['PourcentageInvestissementVert'] . '</td>';
+                    echo '</tr>';
+                }
+                ?>
+            </table>
+        </section>
+        
         <section class="section">
             <h2>Situation ecologique</h2>
 
@@ -217,7 +356,7 @@
     </div>
 
     <hr>
-
+    <?php include "footer.php"; ?>
 </body>
 
 </html>
