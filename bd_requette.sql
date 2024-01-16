@@ -63,21 +63,19 @@ ORDER BY E.nomE ASC, TotalLikes DESC;
 -- Kevin
 SELECT nomE, COUNT(idA) AS nbActionL
 FROM(
-	SELECT A.nomE, L.idA
-	FROM Action A, Labeliser L
-	WHERE A.IdA = L.IdA
-	GROUP BY L.idA) AS tab
+   SELECT DISTINCT A.nomE, L.idA
+   FROM Action A, Labeliser L
+   WHERE A.IdA = L.IdA) AS tab1
 GROUP BY nomE
 HAVING COUNT(idA) = (
-	SELECT MAX(nbAL)
-	FROM(
-		SELECT COUNT(idA) AS nbAL
-		FROM(
-			SELECT A.nomE, L.idA
-			FROM Action A, Labeliser L
-			WHERE A.IdA = L.IdA
-			GROUP BY L.idA) AS tab
-		GROUP BY nomE ) AS tab);
+   SELECT MAX(nbAL)
+   FROM(
+       SELECT COUNT(idA) AS nbAL
+       FROM(
+           SELECT DISTINCT A.nomE, L.idA
+           FROM Action A, Labeliser L
+           WHERE A.IdA = L.IdA) AS tab1
+       GROUP BY nomE ) AS tab2);
 
 -- entreprise qui a obtenu l'action la plus certifié
 SELECT A.nomE, A.nomA, COUNT(L.idA) AS nbL
